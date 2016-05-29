@@ -23,6 +23,7 @@ class Event(Model):
 
 class Result(Model):
     __tablename__ = 'results'
+    id = Column(Integer, primary_key=True)
     productivity = Column(Integer, nullable=True)
     focus = Column(Integer, nullable=True)
     energy = Column(Integer, nullable=True)
@@ -33,6 +34,7 @@ class Result(Model):
 
 class Goal(Model):
     __tablename__ = 'goals'
+    id = Column(Integer, primary_key=True)
     start_time = Column(Integer)
     duration = Column(Integer)
     complete_time = Column(Integer, nullable=True)
@@ -42,8 +44,10 @@ class Goal(Model):
     description = Column(String, nullable=True)
     completed = Column(Boolean, nullable=True)
 
+
 class CurrentStatus(Model):
     __tablename__ = 'current_status'
+    id = Column(Integer, primary_key=True)
     goal = relation('Goal', back_populates='current_status')
     time = Column(Integer)
     status = Column(Integer)
